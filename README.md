@@ -2,6 +2,20 @@
 
 sweetpaste is a sweet n' simple pastebin server. It's completely server-side, with *zero* client-side code.
 
+## Setup
+Before this application can be run the database must be setup
+
+* Make sure the sqlx-cli is installed on your system using 
+    * `cargo install sqlx-cli`
+* Set the `DATABASE_URL` environment variable to `sqlite:file:[db-path same as the one in config]` either by
+    * Writting it in your local `.env` file
+    * or setting it in your local session 
+        * (EX. `export DATABASE_URL=sqlite:file:sweetpaste.db`)
+* Create the database and make sure all the correct tables exist in it
+    * `cargo sqlx database create && cargo sqlx migrate run`
+* Continue to build/run as normal
+    * `cargo build/run`
+
 ## Configuration
 
 The configuration will be loaded from a file named `config.toml` in the working directory.
